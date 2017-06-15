@@ -10,7 +10,7 @@ if (2 > $argc) {
 }
 
 $strMethod = $argv[1];
-$strmixParameters = (!isset($argv[2])) ? 0 : $argv[2];
+$strmixParameters = (!isset($argv[2])) ? 0 : str_replace('\n', ',', $argv[2]);
 
 $objCalculator = new \libraries\Calculator();
 
