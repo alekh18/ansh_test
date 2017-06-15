@@ -15,7 +15,7 @@ class Calculator
         $this->arrintParamters = $arrintParamters;
     }
 
-    public function sum() {
+    public function add() {
         $arrParameters = explode(',', $this->arrintParamters);
 
         return array_sum($arrParameters);

@@ -15,9 +15,9 @@ $strmixParameters = (!isset($argv[2])) ? 0 : $argv[2];
 $objCalculator = new \libraries\Calculator();
 
 switch ($strMethod) {
-    case 'sum' :
+    case 'add' :
         $objCalculator->setParamters($strmixParameters);
-        echo $objCalculator->sum();
+        echo $objCalculator->add();
         break;
     default :
         echo "Invalid method called...";
