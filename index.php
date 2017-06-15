@@ -12,6 +12,16 @@ if (2 > $argc) {
 $strMethod = $argv[1];
 $strmixParameters = (!isset($argv[2])) ? 0 : str_replace('\n', ',', $argv[2]);
 
+$arrmixDelimiter = array();
+preg_match('/^[\\\\].+[\\\\]/', $strmixParameters, $arrmixDelimiter);
+
+if(0 < count($arrmixDelimiter)) {
+    $arrmixDelimiterWOQuotes = array();
+    preg_match('/[^\\\\]+/', $arrmixDelimiter[0], $arrmixDelimiterWOQuotes);
+
+    $strmixParameters = str_replace($arrmixDelimiterWOQuotes[0], ',', preg_replace('/^[\\\\].+[\\\\]/', '', $strmixParameters));
+}
+
 $objCalculator = new \libraries\Calculator();
 
 switch ($strMethod) {
